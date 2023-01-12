@@ -12,11 +12,8 @@
   --color-dark-green: hsl(114, 99%, 32%); /* #11a101 */
 }
 
-html {
-	box-sizing: border-box;
-}
-
-body {
-	min-height: 100vh;
-	color: #FFFFFF;
-}
+/* @layer base {
+	html {
+		font-family: ;
+	}
+} */

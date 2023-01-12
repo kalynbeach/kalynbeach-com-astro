@@ -3,13 +3,16 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
 ---
 
-<header class='p-0 basis-36 flex flex-row justify-between items-center sticky top-0 bg-night-900'>
-	<a href='/'>
+<header class='p-0 basis-36 flex flex-row justify-between items-center sticky top-0 dark:bg-night-900'>
+	<!-- <a href='/'>
 		<h2 class='text-xl'>{SITE_TITLE}</h2>
-	</a>
+	</a> -->
+	<HeaderLink href='/'>
+		<h2 class='text-xl'>{SITE_TITLE}</h2>
+	</HeaderLink>
 	<nav>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
+		<HeaderLink href='/about'>About</HeaderLink>
+		<HeaderLink href='/blog'>Blog</HeaderLink>
 	</nav>
 </header>
 <style>
