@@ -11,9 +11,3 @@
   --color-light-green: hsl(114, 97%, 46%); /* #1ae803 */
   --color-dark-green: hsl(114, 99%, 32%); /* #11a101 */
 }
-
-/* @layer base {
-	html {
-		font-family: ;
-	}
-} */

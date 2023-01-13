@@ -1,0 +1,40 @@
+---
+const { key, post } = Astro.props;
+
+const isHero = key === 0;
+const titleTextSizeClass = isHero ? 'text-2xl' : 'text-xl';
+const descriptionTextSizeClass = isHero ? 'text-base' : 'text-sm';
+---
+
+<div>
+  { isHero && (
+    <a href={post.url}>
+      <img
+        class='w-full mb-4'
+        src={post.frontmatter.heroImage}
+        alt={post.frontmatter.description}
+      />
+    </a>
+  )}
+  <div class='mb-2 flex flex-row justify-between items-center font-mono'>
+    <a href={post.url} class:list={[`${titleTextSizeClass}`, 'transition']}>
+      {post.frontmatter.title}
+    </a>
+    <time datetime={post.frontmatter.pubDate} class='text-xl'>
+      {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })}
+    </time>
+  </div>
+  <p class:list={[`${descriptionTextSizeClass}`, 'font-sans']}>
+    {post.frontmatter.description}
+  </p>
+</div>
+
+<style>
+  a:hover {
+    color: var(--color-light-green);
+  }
+</style>
