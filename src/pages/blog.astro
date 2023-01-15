@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPageHeroItem from '../components/BlogPageHeroItem.astro';
 import BlogPageItem from '../components/BlogPageItem.astro';
 const pageTitle = 'Blog';
 const pageDescription = 'A blog.';
@@ -11,16 +12,16 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
-  <!-- <h2>Blog</h2> -->
   <section>
     <ul>
       {
         posts.map((post, index) => (
-          <li class='mb-8'>
-            <BlogPageItem
-              key={index}
-              post={post}
-            />
+          <li class={index === 0 ? 'mb-8 md:mb-14' : 'mb-6 md:mb-12'}>
+            {index === 0 ? (
+              <BlogPageHeroItem key={index} post={post} />
+            ) : (
+              <BlogPageItem key={index} post={post} />
+            )}
           </li>
         ))
       }
