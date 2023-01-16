@@ -3,6 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "First Post"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Jan 11 2023"
+updatedDate: "Jan 14 2023"
 heroImage: "/placeholder-hero.jpg"
 ---
 
