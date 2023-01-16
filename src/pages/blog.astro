@@ -16,7 +16,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
     <ul>
       {
         posts.map((post, index) => (
-          <li class={index === 0 ? 'mb-10 md:mb-14' : 'mb-10 md:mb-12'}>
+          <li class={index === 0 ? 'mb-10 md:mb-16' : 'mb-10 md:mb-12'}>
             {index === 0 ? (
               <BlogPageHeroItem key={index} post={post} />
             ) : (
