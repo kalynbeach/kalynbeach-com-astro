@@ -27,16 +27,16 @@ const pageTitle = `${title} | ${SITE_TITLE}`;
         height={360}
         src={heroImage}
         alt={description}
-        class='w-full mb-8'
+        class='w-full mb-6'
       />
     )}
-    <div class='mb-8 flex flex-col md:flex-row justify-between md:items-center font-mono'>
+    <div class='mb-6 flex flex-col md:flex-row justify-between md:items-start font-mono'>
       <h1 class='mb-4 md:mb-0 text-3xl'>
         {title}
       </h1>
-      {pubDate && <time class='mr-auto md:mr-0 md:ml-auto text-sm md:text-base'>{pubDate}</time>}
+      {pubDate && <time class='mr-auto md:mr-0 md:ml-auto text-sm md:text-base text-neutral-400'>{pubDate}</time>}
       {updatedDate && (
-        <div class='mt-1 md:mt-0 mr-auto md:mr-0 md:ml-3 text-sm md:text-base'>
+        <div class='mt-1 md:mt-0 mr-auto md:mr-0 md:ml-3 text-sm md:text-base text-neutral-400'>
           <span class='hidden md:inline-block'>&#45;</span> 
           <span>Updated <time>{updatedDate}</time></span>
         </div>

@@ -10,11 +10,11 @@ const { post } = Astro.props;
       alt={post.frontmatter.description}
     />
   </a>
-  <div class='mb-2 md:mb-4 flex flex-row justify-between items-start font-mono'>
+  <div class='mb-2 md:mb-6 flex flex-row justify-between items-start font-mono'>
     <a href={post.url} class='text-xl md:text-3xl transition'>
       {post.frontmatter.title}
     </a>
-    <time datetime={post.frontmatter.pubDate} class='text-base text-neutral-500'>
+    <time datetime={post.frontmatter.pubDate} class='text-base text-neutral-400'>
       {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
         year: 'numeric',
         month: 'short',
