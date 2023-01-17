@@ -5,13 +5,14 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+const isIndexLink = href === '/';
 ---
 
 <a
 	href={href}
 	class:list={[
 		className,
-		{ 'text-kb-green-light': isActive },
+		{ 'text-kb-green-light': isActive && !isIndexLink },
 		'mr-8 last-of-type:mr-0 text-sm hover:text-kb-green-light md:text-base font-mono transition'
 	]}
 	{...props}
