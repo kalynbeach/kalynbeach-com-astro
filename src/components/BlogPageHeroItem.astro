@@ -1,13 +1,16 @@
 ---
+import { Image } from '@astrojs/image/components';
 const { post } = Astro.props;
 ---
 
 <div>
   <a href={post.url}>
-    <img
+    <Image
       class='w-full mb-6'
+      width={720}
+      height={360}
       src={post.frontmatter.heroImage}
-      alt={post.frontmatter.description}
+      alt={post.frontmatter.title}
     />
   </a>
   <div class='mb-2 md:mb-6 flex flex-row justify-between items-start font-mono'>
