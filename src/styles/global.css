@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 :root {
 	/* --- Colors --- */
@@ -16,8 +16,8 @@
   --color-dark-green: hsl(114, 99%, 32%); /* #11a101 */
 }
 
-@layer base {
+/* @layer base {
   p {
     margin-bottom: 1rem;
   }
-}
+} */
