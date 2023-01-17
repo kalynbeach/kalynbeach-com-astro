@@ -9,13 +9,15 @@ const pageDescription = 'A blog.';
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
   (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
+
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <section>
     <ul>
       {
-        posts.map((post, index) => (
+        nonDraftPosts.map((post, index) => (
           <li class={index === 0 ? 'mb-10 md:mb-16' : 'mb-10 md:mb-12'}>
             {index === 0 ? (
               <BlogPageHeroItem key={index} post={post} />
@@ -25,6 +27,17 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
           </li>
         ))
       }
+      <!-- {
+        posts.map((post, index) => (
+          <li class={index === 0 ? 'mb-10 md:mb-16' : 'mb-10 md:mb-12'}>
+            {index === 0 ? (
+              <BlogPageHeroItem key={index} post={post} />
+            ) : (
+              <BlogPageItem key={index} post={post} />
+            )}
+          </li>
+        ))
+      } -->
     </ul>
   </section>
 </BaseLayout>
