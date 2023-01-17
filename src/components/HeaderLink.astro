@@ -7,19 +7,14 @@ const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
-<a href={href} class:list={[className, { active: isActive }, 'text-sm md:text-base font-mono transition']} {...props}>
+<a
+	href={href}
+	class:list={[
+		className,
+		{ 'text-kb-green-light': isActive },
+		'mr-8 last-of-type:mr-0 text-sm hover:text-kb-green-light md:text-base font-mono transition'
+	]}
+	{...props}
+>
 	<slot />
 </a>
-<style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-	}
-	a:not(:last-of-type) {
-		margin-right: 2rem;
-	}
-	a.active,
-	a:hover {
-		color: var(--color-light-green);
-	}
-</style>

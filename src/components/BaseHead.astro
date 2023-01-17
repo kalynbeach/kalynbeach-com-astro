@@ -1,7 +1,8 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+// import '../styles/global.css';
+import Analytics from './Analytics.astro';
 
 export interface Props {
 	title: string;
@@ -42,14 +43,6 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Google tag (gtag.js) -->
-<script
-	type="text/partytown"
-	src="https://www.googletagmanager.com/gtag/js?id=G-65PHF84J5T">
-</script>
-<script type="text/partytown">
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-65PHF84J5T');
-</script>
+{ import.meta.env.MODE === 'production' &&
+	<Analytics />
+}
