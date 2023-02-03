@@ -8,16 +8,16 @@ const { pageTitle, pageDescription } = Astro.props;
 
 <!DOCTYPE html>
 <html class='box-border bg-night-900 text-white' lang='en'>
-	<head>
-		<BaseHead title={pageTitle} description={pageDescription} />
-	</head>
-	<body class='min-h-screen bg-night-900 text-white'>
-		<div class='w-full md:max-w-3xl lg:max-w-4xl min-h-screen mx-auto px-8 md:px-4 flex flex-col'>
-			<Header title={SITE_TITLE} />
-			<main class='min-h-screen py-8 md:py-12 flex-1 flex flex-col'>
-				<slot />
-			</main>
-			<Footer />
-		</div>
-	</body>
+  <head>
+    <BaseHead title={pageTitle} description={pageDescription} />
+  </head>
+  <body class='min-h-screen bg-night-900 text-white'>
+    <div class='w-full md:max-w-3xl lg:max-w-4xl min-h-screen mx-auto px-8 md:px-4 flex flex-col'>
+      <Header title={SITE_TITLE} />
+      <main class='min-h-screen py-8 md:py-12 flex-1 flex flex-col'>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
 </html>

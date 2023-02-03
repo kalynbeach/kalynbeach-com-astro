@@ -1,7 +1,3 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 :root {
 	/* --- Colors --- */
   --color-bg-primary: hsl(20, 11%, 5%); /* #0F0D0C */
@@ -15,9 +11,3 @@
   --color-light-green: hsl(114, 97%, 46%); /* #1ae803 */
   --color-dark-green: hsl(114, 99%, 32%); /* #11a101 */
 }
-
-/* @layer base {
-  p {
-    margin-bottom: 1rem;
-  }
-} */
