@@ -3,7 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
 ---
 
-<header class='m-0 p-0 basis-32 flex flex-row justify-between items-center sticky top-0 dark:bg-night-900'>
+<header class='m-0 px-8 md:px-4 basis-32 flex flex-row justify-between items-center sticky top-0 bg-night-900 bg-transparent backdrop-blur'>
   <HeaderLink href='/' class='font-mono text-lg md:text-xl text-white'>{SITE_TITLE}</HeaderLink>
   <nav>
     <HeaderLink href='/about/'>about</HeaderLink>
