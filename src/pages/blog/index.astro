@@ -1,16 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogPageHeroItem from '../components/BlogPageHeroItem.astro';
-import BlogPageItem from '../components/BlogPageItem.astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPageHeroItem from '../../components/BlogPageHeroItem.astro';
+import BlogPageItem from '../../components/BlogPageItem.astro';
+
 const pageTitle = 'blog | kalynbeach';
 const pageDescription = 'A blog.';
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+const posts = (await getCollection('blog')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+const nonDraftPosts = posts.filter((post) => !post.data.draft);
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
