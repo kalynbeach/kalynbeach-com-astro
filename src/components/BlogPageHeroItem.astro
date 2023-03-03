@@ -9,16 +9,16 @@ const { post } = Astro.props;
       class='w-full mb-6'
       width={720}
       height={360}
-      src={post.frontmatter.heroImage}
-      alt={post.frontmatter.title}
+      src={post.data.heroImage}
+      alt={post.data.title}
     />
   </a>
   <div class='mb-2 md:mb-6 flex flex-row justify-between items-start font-mono'>
-    <a href={post.url} class='text-xl md:text-3xl transition'>
-      {post.frontmatter.title}
+    <a href={`/blog/${post.slug}`} class='text-xl md:text-3xl transition'>
+      {post.data.title}
     </a>
-    <time datetime={post.frontmatter.pubDate} class='text-base text-neutral-400'>
-      {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+    <time datetime={post.data.pubDate} class='text-base text-neutral-400'>
+      {new Date(post.data.pubDate).toLocaleDateString('en-us', {
         year: 'numeric',
         month: 'short',
         day: 'numeric',
@@ -26,7 +26,7 @@ const { post } = Astro.props;
     </time>
   </div>
   <p class='text-sm md:text-base font-sans'>
-    {post.frontmatter.description}
+    {post.data.description}
   </p>
 </div>
 

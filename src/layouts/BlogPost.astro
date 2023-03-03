@@ -1,21 +1,11 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import { SITE_TITLE } from '../config';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-export interface Props {
-  content: {
-    title: string;
-    description: string;
-    pubDate?: string;
-    updatedDate?: string;
-    heroImage?: string;
-  };
-}
+type Props = CollectionEntry<'blog'>['data'];
 
-const {
-  content: { title, description, pubDate, updatedDate, heroImage },
-} = Astro.props;
-
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 const pageTitle = `${title} | ${SITE_TITLE}`;
 ---
 
