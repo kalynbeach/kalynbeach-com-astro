@@ -20,15 +20,15 @@ const pageTitle = `${title} | ${SITE_TITLE}`;
         class='w-full mb-6'
       />
     )}
-    <div class='mb-6 flex flex-col md:flex-row justify-between md:items-start font-mono'>
+    <div class='mb-6 flex flex-col md:flex-row justify-between items-center font-mono'>
       <h1 class='mb-4 md:mb-0 text-3xl'>
         {title}
       </h1>
-      {pubDate && <time class='mr-auto md:mr-0 md:ml-auto text-sm md:text-base text-neutral-400'>{pubDate}</time>}
+      {pubDate && <time class='mr-auto md:mr-0 md:ml-auto text-sm text-neutral-400'>{pubDate.toDateString()}</time>}
       {updatedDate && (
-        <div class='mt-1 md:mt-0 mr-auto md:mr-0 md:ml-3 text-sm md:text-base text-neutral-400'>
+        <div class='mt-1 md:mt-0 mr-auto md:mr-0 md:ml-3 text-sm text-neutral-400'>
           <span class='hidden md:inline-block'>&#45;</span> 
-          <span>Updated <time>{updatedDate}</time></span>
+          <span>Updated <time>{updatedDate.toDateString()}</time></span>
         </div>
       )}
     </div>
@@ -39,7 +39,23 @@ const pageTitle = `${title} | ${SITE_TITLE}`;
 </BaseLayout>
 
 <style>
-  article :global(p) {
+  section.post-content :global(h1) {
+    font-size: 1.85rem;
+    line-height: 2.25rem;
+    margin: 2rem 0 1.5rem;
+  }
+
+  section.post-content :global(h2) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  section.post-content :global(p) {
     margin-bottom: 1rem;
+  }
+
+  section.post-content :global(pre) {
+    padding: 1rem;
   }
 </style>
