@@ -1,30 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPageHeroItem from '../../components/BlogPageHeroItem.astro';
 import BlogPageItem from '../../components/BlogPageItem.astro';
 
 const pageTitle = 'blog | kalynbeach';
 const pageDescription = 'A blog.';
 
 const posts = (await getCollection('blog')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const nonDraftPosts = posts.filter((post) => !post.data.draft);
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
-  <h1 class='text-3xl mb-8'>💭</h1>
+  { nonDraftPosts.length === 0 && <h1 class='text-3xl mb-8'>💭</h1> }
   <section>
     <ul>
       {
         nonDraftPosts.map((post, index) => (
           <li class={index === 0 ? 'mb-10 md:mb-16' : 'mb-10 md:mb-12'}>
             {index === 0 ? (
-              <BlogPageHeroItem key={index} post={post} />
+              <BlogPageItem key={index} post={post} isHero={true} />
             ) : (
-              <BlogPageItem key={index} post={post} />
+              <BlogPageItem key={index} post={post} isHero={false} />
             )}
           </li>
         ))
