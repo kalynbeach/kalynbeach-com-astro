@@ -3,7 +3,6 @@ import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import partytown from '@astrojs/partytown';
 import vercelServerless from '@astrojs/vercel/serverless';
 
 export default defineConfig({
@@ -14,12 +13,7 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp'
     }),
     sitemap(),
-    tailwind(),
-    partytown({
-      config: {
-        forward: ['dataLayer.push']
-      }
-    })
+    tailwind()
   ],
   output: 'server',
   adapter: vercelServerless({
